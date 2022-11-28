@@ -1,0 +1,11 @@
+export OMP_NUM_THREADS=1
+python3 -m torch.distributed.launch --nproc_per_node=4 train.py \
+--name=Conv-Fc-8-4-2-2-0 \
+--train_batch_size=768 \
+--eval_batch_size=16 \
+--learning_rate=5e-3 \
+--weight_decay=0.05 \
+--num_steps=3000 \
+--decay_type='cosine' \
+--warmup_steps=20 \
+--mixup_epochs=2850
